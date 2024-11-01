@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="navigatingTo">
+    <ActionBar title="Food Delivery" class="action-bar">
+        <ActionItem ios.position="right" android.position="right">
+            <Label text="🛒" class="text-xl" />
+        </ActionItem>
+    </ActionBar>
+
+    <StackLayout>
+        <!-- Search Bar -->
+        <SearchBar hint="Search for restaurants or food" class="m-2" />
+
+        <!-- Cuisine Filter -->
+        <ScrollView orientation="horizontal" class="m-2">
+            <StackLayout orientation="horizontal">
+                <Repeater items="{{ cuisines }}">
+                    <Repeater.itemTemplate>
+                        <Label text="{{ $value }}" class="cuisine-pill" tap="{{ $parent.filterByCuisine }}" />
+                    </Repeater.itemTemplate>
+                </Repeater>
+            </StackLayout>
+        </ScrollView>
+
+        <!-- Restaurant List -->
+        <ScrollView>
+            <StackLayout>
+                <Repeater items="{{ restaurants }}">
+                    <Repeater.itemTemplate>
+                        <GridLayout rows="auto" columns="100, *" class="restaurant-card p-3">
+                            <Image src="{{ image }}" width="90" height="90" borderRadius="8" row="0" col="0" />
+                            <StackLayout row="0" col="1" class="ml-2">
+                                <Label text="{{ name }}" class="font-bold text-lg" />
+                                <StackLayout orientation="horizontal">
+                                    <Label text="⭐" />
+                                    <Label text="{{ rating }}" class="mr-2" />
+                                    <Label text="{{ deliveryTime }}" class="text-gray-500" />
+                                </StackLayout>
+                                <Label text="{{ deliveryFee }}" class="text-gray-500" />
+                            </StackLayout>
+                        </GridLayout>
+                    </Repeater.itemTemplate>
+                </Repeater>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</Page>

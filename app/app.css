@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.action-bar {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.restaurant-card {
+    background-color: #ffffff;
+    border-radius: 8;
+    margin: 8;
+    elevation: 2;
+}
+
+.cuisine-pill {
+    border-radius: 20;
+    padding: 8 16;
+    margin: 4;
+    background-color: #f3f4f6;
+}
+
+.cuisine-pill-selected {
+    background-color: #ef4444;
+    color: #ffffff;
+}
